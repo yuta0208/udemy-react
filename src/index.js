@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import './index.css';
 import reducer from './reducers'
 import EventIndex from './components/evenets_index';
-import EventsNew from './components/events_new'
+import EventsNew from './components/events_new';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(reducer, applyMiddleware(thunk))

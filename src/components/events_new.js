@@ -9,13 +9,11 @@ class EventsNew extends Component{
   constructor(props){
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
-    this.onDeleteClick = this.onDeleteClick.bind(this)
+
   }
   renderField(field){
     const{ input, label, type, meta: {touched, error} } = field
-    // console.log("これがfield")
-    // console.log(field)
-    // console.log({...input})
+  
     return(
     <div>
       <input {...input} placeholder={label} type={type} />
@@ -29,7 +27,7 @@ class EventsNew extends Component{
     this.props.history.push('/')
   } 
   render(){
-    const { handleSubmit, pristine, submitting } = this.props
+    const { handleSubmit, pristine, submitting, invalid } = this.props
     console.log(this.props)
     return(
       <React.Fragment>
@@ -41,7 +39,7 @@ class EventsNew extends Component{
             <Field label="Body"  name="body" type="text" component={ this.renderField } />
           </div>
           <div>
-            <input type="submit" value="Submit" disabled={pristine || submitting} />
+            <input type="submit" value="Submit" disabled={pristine || submitting || invalid} />
             <Link to="/">cancel</Link>
             
           </div>
